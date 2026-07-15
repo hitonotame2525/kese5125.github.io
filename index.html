@@ -178,6 +178,7 @@ button{
 
 }
 
+
 button:disabled{
 
     opacity:.5;
@@ -458,6 +459,16 @@ const welcome=document.getElementById("welcome");
 
 const dontShow=document.getElementById("dontShow");
 
+const alarmInput=document.getElementById("alarmTime");
+
+const savedTime=localStorage.getItem("alarmTime");
+
+if(savedTime){
+
+    alarmInput.value=savedTime;
+
+}
+
 //==========================
 // Welcome画面
 //==========================
@@ -534,6 +545,8 @@ document.getElementById("startBtn").onclick=()=>{
     }
 
     const t=time.split(":");
+ 
+    localStorage.setItem("alarmTime",time);
 
     alarmHour=Number(t[0]);
 
